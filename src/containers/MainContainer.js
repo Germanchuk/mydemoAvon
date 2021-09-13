@@ -1,82 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Dimensions, StyleSheet, Text, useWindowDimensions } from 'react-native';
+import { StyleSheet, useWindowDimensions } from 'react-native';
 import PortraitScreen from '../screens/PortraitScreen/PortraitScreen'
-import { Appbar, Button } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 import RotateIcon from '../assets/icons/RotateIcon';
 import LandscapeScreen from '../screens/LandscapeScreen';
 import Orientation from 'react-native-orientation'
-
-const items = [
-  {
-    id: 1,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/rhcp.jpg'),
-  },
-  {
-    id: 2,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/top.jpg'),
-  },
-  {
-    id: 11,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/rhcp.jpg'),
-  },
-  {
-    id: 3,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/top.jpg'),
-  },
-  {
-    id: 4,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/rhcp.jpg'),
-  },
-  {
-    id: 5,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/top.jpg'),
-  },
-  {
-    id: 6,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/rhcp.jpg'),
-  },
-  {
-    id: 7,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/top.jpg'),
-  },
-  {
-    id: 8,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/rhcp.jpg'),
-  },
-  {
-    id: 9,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/top.jpg'),
-  },
-  {
-    id: 10,
-    title: 'song 1.mp3',
-    performer: 'RHCP',
-    imgSrc: require('../assets/rhcp.jpg'),
-  },
-]
-
-
+import { items } from '../items';
 
 const MainContainer = () => {
 

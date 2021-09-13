@@ -1,5 +1,6 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react'
+import React, { useRef, useCallback } from 'react'
 import { Animated, Image, StyleSheet, Text, View, Dimensions } from 'react-native'
+import { cutTitle } from '../utils/utils';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -19,19 +20,13 @@ const LandscapeScreen = ({
 	items,
 	selectedIndex,
 	setSelectedIndex,
-	orientation,
 }) => {
 
-	const flatRef = useRef(new Animated.Value(0));
-	const scrollX = flatRef.current;
+	const scrollX = useRef(new Animated.Value(0)).current;
 
 	const handleVieweableItemsChanged = useCallback(({ _, changed }) => {
 		setSelectedIndex(changed[0].index);
 	}, []);
-
-	useEffect(() => {
-		console.log('orientation: ', orientation)
-	}, [orientation])
 
 	return (
 		<View style={{ flex: 1, }} >
@@ -68,12 +63,12 @@ const LandscapeScreen = ({
 				pagingEnabled
 				showsHorizontalScrollIndicator={false}
 				keyExtractor={(_, index) => index.toString()}
-				renderItem={item => {
+				renderItem={({ item }) => {
 					return (
 						<View style={styles.imgContainer}>
-							<Image source={item.item.imgSrc} style={styles.img} />
-							<Text style={styles.title}>{item.item.title}</Text>
-							<Text style={styles.subtitle}>{item.item.performer}</Text>
+							<Image source={item.imgSrc} style={styles.img} />
+							<Text style={styles.title}>{cutTitle(item.title, 18)}</Text>
+							<Text style={styles.subtitle}>{item.performer}</Text>
 						</View>
 					)
 				}}

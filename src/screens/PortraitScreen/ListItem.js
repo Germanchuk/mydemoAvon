@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { cutTitle } from '../../utils/utils'
 
 
 
@@ -26,7 +27,7 @@ const ListItem = ({
 			</View>
 			<View style={styles.info}>
 				<Text style={styles.title}>
-					{title}
+					{cutTitle(title, 18)}
 				</Text>
 				<Text>
 					{performer}
